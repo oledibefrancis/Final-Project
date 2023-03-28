@@ -1,17 +1,31 @@
 package com.company.gamestore.model;
 
+import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Game {
     @Id
     private int id;
+    @NotEmpty(message = "You must supply a value for title.")
+    @Size(max = 50, message = "You must supply a value less than 50 characters.")
     private String title;
+    @NotEmpty(message = "You must supply a value for esrb rating.")
+    @Size(max = 50, message = "You must supply a value less than 50 characters.")
     private String esrb_rating;
+    @NotEmpty(message = "You must supply a value for description.")
+    @Size(max = 255, message = "You must supply a value less than 255 characters.")
     private String description;
+    @Column(precision = 5, scale = 2)
     private BigDecimal price;
+    @NotEmpty(message = "You must supply a value for studio")
+    @Size(max = 50, message = "You must supply a value less than 50 characters.")
     private String studio;
+    @Min(value = 0, message = "Quantity cannot be negative.")
     private int quantity;
 
     public int getId() {

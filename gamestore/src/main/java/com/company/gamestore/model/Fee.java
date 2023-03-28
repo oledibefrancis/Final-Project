@@ -1,11 +1,17 @@
 package com.company.gamestore.model;
 
+import javax.persistence.Column;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Fee {
 
+    @NotEmpty(message = "You must provide a value for product type.")
+    @Size(max = 50, message = "You must provide a value less than 50 characters")
     private String productType;
+    @Column(precision = 8, scale = 2)
     private BigDecimal fee;
 
     public String getProductType() {

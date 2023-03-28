@@ -1,6 +1,10 @@
 package com.company.gamestore.model;
 
+import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -8,11 +12,21 @@ public class Console {
 
     @Id
     private int id;
+
+    @NotEmpty(message = "You must supply a value for model.")
+    @Size(max = 50, message = "You must supply a value less than 50 characters.")
     private String model;
+    @NotEmpty(message = "You must supply a value for manufacturer.")
+    @Size(max = 50, message = "You must supply a value less than 50 characters.")
     private String manufacturer;
+    @Size(max = 20, message = "You must supply a value less than 20 characters.")
     private String memory_amount;
+    @Size(max = 20, message = "You must supply a value less than 20 characters.")
     private String processor;
+    @Column(precision = 5, scale = 2)
     private BigDecimal price;
+
+    @Min(value = 0, message = "Quantity cannot be negative.")
     private int quantity;
 
     public int getId() {

@@ -1,11 +1,17 @@
 package com.company.gamestore.model;
 
+import javax.persistence.Column;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Tax {
 
+    @NotEmpty(message = "You must supply a value for state.")
+    @Size(min = 2, max = 2, message = "You must supply the two letter abbreviation.")
     private String state;
+    @Column(precision = 8, scale = 2)
     private BigDecimal rate;
 
     public String getState() {
