@@ -1,6 +1,9 @@
 package com.company.gamestore.model;
 
+import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -9,18 +12,38 @@ public class Invoice {
 
     @Id
     private int id;
+    @NotEmpty(message = "You must supply a value for name.")
+    @Size(max = 50, message = "You must supply a value less than 50 characters.")
     private String name;
+    @NotEmpty(message = "You must supply a value for street.")
+    @Size(max = 100, message = "You must supply a value less than 100 characters.")
     private String street;
+    @NotEmpty(message = "You must supply a value for city.")
+    @Size(max = 50, message = "You must supply a value less than 50 characters.")
     private String city;
+
+    @NotEmpty(message = "You must supply a value for state.")
+    @Size(max = 20, message = "You must supply a value less than 20 characters.")
     private String state;
+    @NotEmpty(message = "You must supply a value for zipcode.")
+    @Size(min = 10, max = 10, message = "You must supply a value with exactly 10 digits.")
     private String zipcode;
+    @NotEmpty(message = "You must supply a value for item type.")
+    @Size(max = 50, message = "You must supply a value less than 50 characters.")
     private String item_type;
+    @NotEmpty(message = "You must supply a value for item id.")
     private int item_id;
+    @Column(precision = 8, scale = 2)
     private BigDecimal unit_price;
+    @NotEmpty(message = "You must supply a value for quantity.")
     private int quantity;
+    @Column(precision = 8, scale = 2)
     private BigDecimal subtotal;
+    @Column(precision = 8, scale = 2)
     private BigDecimal tax;
+    @Column(precision = 8, scale = 2)
     private BigDecimal processing_fee;
+    @Column(precision = 8, scale = 2)
     private BigDecimal total;
 
     public int getId() {
