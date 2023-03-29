@@ -18,9 +18,6 @@ public class Console {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-public class Console {
-
-    @Id
     private int id;
 
     @NotEmpty(message = "You must supply a value for model.")

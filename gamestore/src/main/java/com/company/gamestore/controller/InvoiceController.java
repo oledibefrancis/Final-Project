@@ -18,26 +18,25 @@ public class InvoiceController {
 
     @PostMapping("/Invoice")
     @ResponseStatus(HttpStatus.CREATED)
-    public Invoice createCustomer(@RequestBody Invoice invoice){
+    public Invoice createInvoice(@RequestBody Invoice invoice){
         return repo.save(invoice);
     }
 
-    @PutMapping("/Invoice")
+    @GetMapping("/Invoice")
     @ResponseStatus(value = HttpStatus.OK)
-    public Invoice updateCustomer(@RequestBody Invoice invoice){
-        return repo.save(invoice);
-    }
-
-    @DeleteMapping("/Invoice/{id}")
-    @ResponseStatus(value = HttpStatus.OK)
-    public void delete(@PathVariable int id){
-        repo.deleteById(id);
+    public void getAllInvoice(){
+        repo.findAll();
     }
 
     @GetMapping("/Invoice/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public Optional<Invoice> getCustomer(@PathVariable int id){
+    public Optional<Invoice> getInvoiceById(@PathVariable int id){
         return  repo.findById(id);
     }
 
+    @GetMapping("/Invoice/{name}")
+    @ResponseStatus(value = HttpStatus.OK)
+    public Invoice getInvoiceByCustomerName(@PathVariable String name){
+        return  repo.findByCustomerName(name);
+    }
 }
