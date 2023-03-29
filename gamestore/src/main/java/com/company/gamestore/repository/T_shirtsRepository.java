@@ -7,9 +7,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface T_shirtsRepository extends JpaRepository<T_Shirt,Integer> {
-    String findByColor(String color);
-    String findBySize(String size);
+    List<T_Shirt> findByColor(String color);
+    List<T_Shirt> findBySize(String size);
 }

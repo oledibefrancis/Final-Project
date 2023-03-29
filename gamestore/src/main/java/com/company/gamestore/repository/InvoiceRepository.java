@@ -12,5 +12,5 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Repository
 public interface InvoiceRepository extends JpaRepository<Invoice,Integer> {
 
-    String findByCustomerName(String name);
+    Invoice findByCustomerName(String name);
 }

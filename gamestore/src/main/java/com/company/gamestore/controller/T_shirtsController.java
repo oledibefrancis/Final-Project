@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -38,7 +39,25 @@ public class T_shirtsController {
 
     @GetMapping("/T_shirts/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public Optional<T_Shirt> getTShirt(@PathVariable int id){
+    public Optional<T_Shirt> getTShirtById(@PathVariable int id){
         return  repo.findById(id);
+    }
+
+    @GetMapping("/T_shirts")
+    @ResponseStatus(value = HttpStatus.OK)
+    public List<T_Shirt> getAllTShirt(){
+        return  repo.findAll();
+    }
+
+    @GetMapping("/T_shirts/{color}")
+    @ResponseStatus(value = HttpStatus.OK)
+    public List<T_Shirt> getTShirtByColor(@PathVariable String color){
+        return  repo.findByColor(color);
+    }
+
+    @GetMapping("/T_shirts/{size}")
+    @ResponseStatus(value = HttpStatus.OK)
+    public List<T_Shirt> getTShirtBySize(@PathVariable String size){
+        return  repo.findBySize(size);
     }
 }

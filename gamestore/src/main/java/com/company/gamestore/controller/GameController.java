@@ -38,14 +38,32 @@ public class GameController {
 
     @GetMapping("/Game/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public Optional<Game> getGame(@PathVariable int id){
+    public Optional<Game> getGameById(@PathVariable int id){
         return  repo.findById(id);
     }
 
     @GetMapping("/Game")
     @ResponseStatus(value = HttpStatus.OK)
-    public List<Game> getGame(){
+    public List<Game> getGameAllGames(){
         return  repo.findAll();
+    }
+
+    @GetMapping("/Game/{Studio}")
+    @ResponseStatus(value = HttpStatus.OK)
+    public List<Game> getGameByStudio(@PathVariable String studio){
+        return  repo.findByStudio(studio);
+    }
+
+    @GetMapping("/Game/{Esrb}")
+    @ResponseStatus(value = HttpStatus.OK)
+    public List<Game> getGameEsrb(@PathVariable String Esrb){
+        return  repo.findByStudio(Esrb);
+    }
+
+    @GetMapping("/Game/{Title}")
+    @ResponseStatus(value = HttpStatus.OK)
+    public List<Game> getGameByTitle(@PathVariable String Title){
+        return  repo.findByStudio(Title);
     }
 
 
