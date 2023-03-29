@@ -8,17 +8,16 @@ import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "game")
-public class Game {
+public class Game  implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
-public class Game {
-    @Id
     private int id;
     @NotEmpty(message = "You must supply a value for title.")
     @Size(max = 50, message = "You must supply a value less than 50 characters.")

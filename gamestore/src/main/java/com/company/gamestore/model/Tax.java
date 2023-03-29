@@ -6,13 +6,14 @@ import javax.persistence.*;
 import javax.persistence.Column;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "tax")
 
-public class Tax {
+public class Tax  implements Serializable {
 
     @NotEmpty(message = "You must supply a value for state.")
     @Size(min = 2, max = 2, message = "You must supply the two letter abbreviation.")

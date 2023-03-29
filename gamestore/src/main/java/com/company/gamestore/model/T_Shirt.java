@@ -8,20 +8,15 @@ import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "tshirt")
-public class T_Shirt {
-
+public class T_Shirt  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
-
-public class T_Shirt {
-
-    @Id
 
     private int id;
     @NotEmpty(message = "You must supply a value for size.")
