@@ -3,6 +3,8 @@ package com.company.gamestore.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -14,6 +16,9 @@ import java.util.Objects;
 public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+
+public class Game {
+    @Id
     private int id;
     @NotEmpty(message = "You must supply a value for title.")
     @Size(max = 50, message = "You must supply a value less than 50 characters.")
