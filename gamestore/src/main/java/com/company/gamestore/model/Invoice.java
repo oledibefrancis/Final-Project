@@ -1,16 +1,23 @@
 package com.company.gamestore.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Objects;
+@Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Table(name = "invoice")
 
 public class Invoice {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @NotEmpty(message = "You must supply a value for name.")
     @Size(max = 50, message = "You must supply a value less than 50 characters.")

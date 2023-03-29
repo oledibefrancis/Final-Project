@@ -1,5 +1,8 @@
 package com.company.gamestore.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
@@ -8,6 +11,13 @@ import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+@Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Table(name = "console")
+public class Console {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 public class Console {
 
     @Id
