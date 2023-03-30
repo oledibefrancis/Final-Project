@@ -13,18 +13,10 @@ import static org.junit.Assert.*;
 public class T_shirtsRepositoryTest {
 
     @Autowired
-    GameRepository gameRepository;
-
-    @Autowired
-    InvoiceRepository invoiceRepository;
-
-    @Autowired
     T_shirtsRepository t_shirtsRepository;
 
     @Before
     public void setUp() {
-        gameRepository.deleteAll();
-        invoiceRepository.deleteAll();
         t_shirtsRepository.deleteAll();
     }
 
