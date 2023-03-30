@@ -23,19 +23,19 @@ public class T_shirtsController {
     }
 
     @PutMapping("/t_shirts")
-    @ResponseStatus(value = HttpStatus.OK)
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public T_Shirt updateTShirt(@RequestBody T_Shirt tShirt){
         return repo.save(tShirt);
     }
 
 
     @DeleteMapping("/t_shirts/{id}")
-    @ResponseStatus(value = HttpStatus.OK)
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void deleteTShirt(@PathVariable int id){
         repo.deleteById(id);
     }
 
-    @GetMapping("/t_shirts/{id}")
+    @GetMapping("/t_shirts/id/{id}")
     @ResponseStatus(value = HttpStatus.OK)
     public Optional<T_Shirt> getTShirtById(@PathVariable int id){
         return  repo.findById(id);
@@ -47,13 +47,13 @@ public class T_shirtsController {
         return  repo.findAll();
     }
 
-    @GetMapping("/t_shirts/{color}")
+    @GetMapping("/t_shirts/color/{color}")
     @ResponseStatus(value = HttpStatus.OK)
     public List<T_Shirt> getTShirtByColor(@PathVariable String color){
         return  repo.findByColor(color);
     }
 
-    @GetMapping("/t_shirts/{size}")
+    @GetMapping("/t_shirts/size/{size}")
     @ResponseStatus(value = HttpStatus.OK)
     public List<T_Shirt> getTShirtBySize(@PathVariable String size){
         return  repo.findBySize(size);

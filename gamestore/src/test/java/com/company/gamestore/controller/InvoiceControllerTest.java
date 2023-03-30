@@ -15,6 +15,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.Mockito.when;
@@ -34,7 +36,6 @@ public class InvoiceControllerTest {
 
     private final ObjectMapper mapper = new ObjectMapper();
 
-
     public Invoice createInvoice() {
         Invoice invoice = new Invoice();
         invoice.setCity("New York");
@@ -53,6 +54,9 @@ public class InvoiceControllerTest {
         invoice.setTotal(BigDecimal.valueOf(30));
         return invoice;
     }
+
+
+
     @Before
     public void setUp() throws Exception {
         invoiceRepository.deleteAll();
@@ -84,9 +88,28 @@ public class InvoiceControllerTest {
                 .andDo(print())
                 .andExpect(status().isCreated());
     }
-
     @Test
     public void testGetInvoiceByName() throws Exception {
+        Invoice invoice = createInvoice();
+        List<Invoice> invoiceList = new ArrayList<>();
+        invoiceList.add(invoice);
 
+        when(invoiceRepository.findByName(invoice.getName())).thenReturn(invoiceList);
 
+        mockMvc.perform(get("/invoice/name/" + invoice.getName()))
+                .andDo(print())
+                .andExpect(status().isOk());
     }
+
+    @Test
+    public void testGetInvoiceById() throws Exception {
+        Invoice invoice = createInvoice();
+
+        when(invoiceRepository.findById(invoice.getId())).thenReturn(Optional.of(invoice));
+
+        mockMvc.perform(get("/invoice/id/" + invoice.getId()))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+}

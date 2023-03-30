@@ -22,18 +22,18 @@ public class ConsoleController {
     }
 
     @PutMapping("/console")
-    @ResponseStatus(value = HttpStatus.OK)
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public Console updateConsole(@RequestBody Console console){
         return repo.save(console);
     }
 
     @DeleteMapping("/console/{id}")
-    @ResponseStatus(value = HttpStatus.OK)
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void deleteConsole(@PathVariable int id){
         repo.deleteById(id);
     }
 
-    @GetMapping("/console/{id}")
+    @GetMapping("/console/id/{id}")
     @ResponseStatus(value = HttpStatus.OK)
     public Optional<Console> getConsoleById(@PathVariable int id){
         return  repo.findById(id);
@@ -45,7 +45,7 @@ public class ConsoleController {
         return  repo.findByManufacturer(manufacturer);
     }
 
-    @GetMapping("console")
+    @GetMapping("/console")
     @ResponseStatus(value = HttpStatus.OK)
     public List<Console> getAllConsole(){
         return repo.findAll();

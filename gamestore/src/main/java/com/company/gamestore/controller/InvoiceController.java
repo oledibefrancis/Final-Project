@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -27,15 +28,15 @@ public class InvoiceController {
         repo.findAll();
     }
 
-    @GetMapping("/invoice/{id}")
+    @GetMapping("/invoice/id/{id}")
     @ResponseStatus(value = HttpStatus.OK)
     public Optional<Invoice> getInvoiceById(@PathVariable int id){
         return  repo.findById(id);
     }
 
-    @GetMapping("/invoice/{name}")
+    @GetMapping("/invoice/name/{name}")
     @ResponseStatus(value = HttpStatus.OK)
-    public Invoice getInvoiceByCustomerName(@PathVariable String name){
+    public List<Invoice> getInvoiceByCustomerName(@PathVariable String name){
         return  repo.findByName(name);
     }
 }
