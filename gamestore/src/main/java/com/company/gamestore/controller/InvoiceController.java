@@ -37,6 +37,6 @@ public class InvoiceController {
     @GetMapping("/Invoice/{name}")
     @ResponseStatus(value = HttpStatus.OK)
     public Invoice getInvoiceByCustomerName(@PathVariable String name){
-        return  repo.findByCustomerName(name);
+        return  repo.findByName(name);
     }
 }
