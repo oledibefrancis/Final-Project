@@ -1,7 +1,6 @@
 package com.company.gamestore.controller;
 
 import com.company.gamestore.model.Console;
-import com.company.gamestore.model.Game;
 import com.company.gamestore.repository.ConsoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,37 +15,37 @@ public class ConsoleController {
     ConsoleRepository repo;
 
 
-    @PostMapping("/Console")
+    @PostMapping("/console")
     @ResponseStatus(HttpStatus.CREATED)
     public Console createConsole(@RequestBody Console console){
         return repo.save(console);
     }
 
-    @PutMapping("/Console")
+    @PutMapping("/console")
     @ResponseStatus(value = HttpStatus.OK)
     public Console updateConsole(@RequestBody Console console){
         return repo.save(console);
     }
 
-    @DeleteMapping("/Console/{id}")
+    @DeleteMapping("/console/{id}")
     @ResponseStatus(value = HttpStatus.OK)
     public void deleteConsole(@PathVariable int id){
         repo.deleteById(id);
     }
 
-    @GetMapping("/Console/{id}")
+    @GetMapping("/console/{id}")
     @ResponseStatus(value = HttpStatus.OK)
     public Optional<Console> getConsoleById(@PathVariable int id){
         return  repo.findById(id);
     }
 
-    @GetMapping("/Console/manufacturer")
+    @GetMapping("/console/manufacturer")
     @ResponseStatus(value = HttpStatus.OK)
     public List<Console> getConsoleByManufacturer(@PathVariable String manufacturer){
         return  repo.findByManufacturer(manufacturer);
     }
 
-    @GetMapping("Console")
+    @GetMapping("console")
     @ResponseStatus(value = HttpStatus.OK)
     public List<Console> getAllConsole(){
         return repo.findAll();
