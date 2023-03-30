@@ -14,10 +14,11 @@ import java.util.Objects;
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "game")
-public class Game  implements Serializable {
 
+
+public class Game implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @NotEmpty(message = "You must supply a value for title.")
     @Size(max = 50, message = "You must supply a value less than 50 characters.")
