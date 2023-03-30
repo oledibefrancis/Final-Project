@@ -24,7 +24,7 @@ public class Game  implements Serializable {
     private String title;
     @NotEmpty(message = "You must supply a value for esrb rating.")
     @Size(max = 50, message = "You must supply a value less than 50 characters.")
-    private String esrb_rating;
+    private String esrbRating;
     @NotEmpty(message = "You must supply a value for description.")
     @Size(max = 255, message = "You must supply a value less than 255 characters.")
     private String description;
@@ -53,11 +53,11 @@ public class Game  implements Serializable {
     }
 
     public String getEsrb_rating() {
-        return esrb_rating;
+        return esrbRating;
     }
 
     public void setEsrb_rating(String esrb_rating) {
-        this.esrb_rating = esrb_rating;
+        this.esrbRating = esrb_rating;
     }
 
     public String getDescription() {
@@ -97,12 +97,12 @@ public class Game  implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Game game = (Game) o;
-        return id == game.id && quantity == game.quantity && Objects.equals(title, game.title) && Objects.equals(esrb_rating, game.esrb_rating) && Objects.equals(description, game.description) && Objects.equals(price, game.price) && Objects.equals(studio, game.studio);
+        return id == game.id && quantity == game.quantity && Objects.equals(title, game.title) && Objects.equals(esrbRating, game.esrbRating) && Objects.equals(description, game.description) && Objects.equals(price, game.price) && Objects.equals(studio, game.studio);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, esrb_rating, description, price, studio, quantity);
+        return Objects.hash(id, title, esrbRating, description, price, studio, quantity);
     }
 
     @Override
@@ -110,7 +110,7 @@ public class Game  implements Serializable {
         return "Game{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", esrb_rating='" + esrb_rating + '\'' +
+                ", esrb_rating='" + esrbRating + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", studio='" + studio + '\'' +
