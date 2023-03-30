@@ -29,7 +29,7 @@ public class InvoiceRepositoryTest {
     }
 
     @Test
-    public void shouldAddInvoice() {
+    public void shouldAddAndGetInvoice() {
         Invoice invoice = new Invoice();
         invoice.setName("Cody");
         invoice.setStreet("116th Avenue");
@@ -95,51 +95,6 @@ public class InvoiceRepositoryTest {
         assertEquals(invoiceList.size(), 2);
     }
 
-//    @Test
-//    public void shouldGetGamesByStudio() {
-//
-//        Game game = new Game();
-//        game.setTitle("Portal");
-//        game.setEsrb_rating("Rated E");
-//        game.setDescription("A game where you make portals to solve puzzles");
-//        game.setPrice(new BigDecimal("59.99"));
-//        game.setStudio("Bethesda");
-//        game.setQuantity(400);
-//
-//        gameRepository.save(game);
-//
-//        game = new Game();
-//        game.setTitle("Portal");
-//        game.setEsrb_rating("Rated E");
-//        game.setDescription("A game where you make portals to solve puzzles");
-//        game.setPrice(new BigDecimal("59.99"));
-//        game.setStudio("Square");
-//        game.setQuantity(400);
-//
-//        gameRepository.save(game);
-//
-//        game = new Game();
-//        game.setTitle("Portal");
-//        game.setEsrb_rating("Rated E");
-//        game.setDescription("A game where you make portals to solve puzzles");
-//        game.setPrice(new BigDecimal("59.99"));
-//        game.setStudio("Square");
-//        game.setQuantity(300);
-//
-//        gameRepository.save(game);
-//        List<Game> mList = gameRepository.findByStudio("Square");
-//
-//        assertEquals(2, mList.size());
-//
-//        mList = gameRepository.findByStudio("Bethesda");
-//
-//        assertEquals(1, mList.size());
-//
-//        mList = gameRepository.findByStudio("Epic Games");
-//
-//        assertEquals(0, mList.size());
-//    }
-
     @Test
     public void shouldGetInvoiceByCustomerName() {
 
@@ -177,19 +132,11 @@ public class InvoiceRepositoryTest {
 
         invoiceRepository.save(invoice);
 
-        Invoice mList = invoiceRepository.findByCustomerName("Cody");
+        //ACT
+        Invoice invoice1 = invoiceRepository.findByName("Cody");
 
-//        assertEquals(2, mList.size());
-//
-//        mList = invoiceRepository.findByCustomerName("David");
-//
-//        assertEquals(0, mList.size());
-
-
+        assertEquals(invoice1.getName(), invoice);
 
     }
-
-
-
 
 }

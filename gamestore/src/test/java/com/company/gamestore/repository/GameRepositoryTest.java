@@ -172,15 +172,15 @@ public class GameRepositoryTest {
         game.setQuantity(400);
 
         gameRepository.save(game);
-        List<Game> mList = gameRepository.findByEsrb("Rated M");
+        List<Game> mList = gameRepository.findByEsrbRating("Rated M");
 
         assertEquals(2, mList.size());
 
-        mList = gameRepository.findByEsrb("Rated E");
+        mList = gameRepository.findByEsrbRating("Rated E");
 
         assertEquals(1, mList.size());
 
-        mList = gameRepository.findByEsrb("Rated T");
+        mList = gameRepository.findByEsrbRating("Rated T");
 
         assertEquals(0, mList.size());
     }
