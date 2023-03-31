@@ -19,6 +19,7 @@ import java.util.Objects;
 public class Game implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "game_id")
     private int id;
     @NotEmpty(message = "You must supply a value for title.")
     @Size(max = 50, message = "You must supply a value less than 50 characters.")

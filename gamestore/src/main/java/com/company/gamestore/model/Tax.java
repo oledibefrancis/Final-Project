@@ -18,7 +18,7 @@ public class Tax  implements Serializable {
     @NotEmpty(message = "You must supply a value for state.")
     @Size(min = 2, max = 2, message = "You must supply the two letter abbreviation.")
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String state;
     @Column(precision = 8, scale = 2)
     private BigDecimal rate;

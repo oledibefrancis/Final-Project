@@ -17,7 +17,8 @@ import java.util.Objects;
 @Table(name = "console")
 public class Console implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "console_id")
     private int id;
 
     @NotEmpty(message = "You must supply a value for model.")

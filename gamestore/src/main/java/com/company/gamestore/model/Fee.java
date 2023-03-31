@@ -18,7 +18,7 @@ public class Fee implements Serializable {
     @NotEmpty(message = "You must provide a value for product type.")
     @Size(max = 50, message = "You must provide a value less than 50 characters")
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String productType;
     @Column(precision = 8, scale = 2)
     private BigDecimal fee;

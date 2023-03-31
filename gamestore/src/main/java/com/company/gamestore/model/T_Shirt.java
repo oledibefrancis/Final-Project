@@ -16,8 +16,9 @@ import java.util.Objects;
 @Table(name = "tshirt")
 public class T_Shirt  implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
+    @Column(name = "tshirt_id")
     private int id;
     @NotEmpty(message = "You must supply a value for size.")
     @Size(max = 20, message = "You must supply a value less than 20 characters.")
