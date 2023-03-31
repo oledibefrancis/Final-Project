@@ -46,7 +46,7 @@ public class GameController {
         return  repo.findAll();
     }
 
-    @GetMapping("/invoice/studio/{Studio}")
+    @GetMapping("/game/studio/{Studio}")
     @ResponseStatus(value = HttpStatus.OK)
     public List<Game> getGameByStudio(@PathVariable String studio){
         return  repo.findByStudio(studio);

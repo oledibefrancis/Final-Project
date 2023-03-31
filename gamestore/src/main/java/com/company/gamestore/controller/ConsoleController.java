@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
+@RestController
 public class ConsoleController {
 
     @Autowired
@@ -39,7 +39,7 @@ public class ConsoleController {
         return  repo.findById(id);
     }
 
-    @GetMapping("/console/manufacturer")
+    @GetMapping("/console/manufacturer/{manufacturer}")
     @ResponseStatus(value = HttpStatus.OK)
     public List<Console> getConsoleByManufacturer(@PathVariable String manufacturer){
         return  repo.findByManufacturer(manufacturer);
