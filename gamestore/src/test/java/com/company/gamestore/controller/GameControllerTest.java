@@ -86,7 +86,7 @@ public class GameControllerTest {
         String inputJson = mapper.writeValueAsString(game);
 
         mockMvc.perform(
-                        put("/game" + game.getId())
+                        put("/game")
                                 .content(inputJson)
                                 .contentType(MediaType.APPLICATION_JSON)
                 )

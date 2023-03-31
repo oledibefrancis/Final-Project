@@ -101,7 +101,7 @@ public class ConsoleControllerTest {
         String inputJson = mapper.writeValueAsString(console);
 
         mockMvc.perform(
-                        put("/console" + console.getId())
+                        put("/console")
                                 .content(inputJson)
                                 .contentType(MediaType.APPLICATION_JSON)
                 )
