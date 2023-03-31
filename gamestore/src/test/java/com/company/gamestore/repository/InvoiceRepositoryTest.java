@@ -31,23 +31,22 @@ public class InvoiceRepositoryTest {
     @Test
     public void shouldAddAndGetInvoice() {
         Invoice invoice = new Invoice();
-        invoice.setName("Cody");
-        invoice.setStreet("116th Avenue");
-        invoice.setCity("Forest Hills");
-        invoice.setState("New York");
-        invoice.setZipcode("11375");
+        invoice.setName("David");
+        invoice.setStreet("100 winchester Circle");
+        invoice.setCity("Los Gatos");
+        invoice.setState("CA");
+        invoice.setZipcode("95032");
         invoice.setItem_type("Console");
-        invoice.setItem_id(45);
-        invoice.setUnit_price(new BigDecimal("499.99"));
-        invoice.setQuantity(700);
-        invoice.setSubtotal(new BigDecimal("745.98"));
-        invoice.setTax(new BigDecimal("0.50"));
-        invoice.setProcessing_fee(new BigDecimal("4.99"));
-        invoice.setTotal(new BigDecimal("750.00"));
+        invoice.setItem_id(25);
+        invoice.setUnit_price(new BigDecimal("399.99"));
+        invoice.setQuantity(50);
+        invoice.setSubtotal(new BigDecimal("500.00"));
+        invoice.setTax(new BigDecimal("1.50"));
+        invoice.setProcessing_fee(new BigDecimal("6.99"));
+        invoice.setTotal(new BigDecimal("550.00"));
 
         invoice = invoiceRepository.save(invoice);
 
-        //Assert...
         Optional<Invoice> invoice1 = invoiceRepository.findById(invoice.getId());
 
         assertEquals(invoice1.get(), invoice);
@@ -58,36 +57,36 @@ public class InvoiceRepositoryTest {
     public void shouldGetAllInvoice() {
 
         Invoice invoice = new Invoice();
-        invoice.setName("Cody");
-        invoice.setStreet("116th Avenue");
-        invoice.setCity("Forest Hills");
-        invoice.setState("New York");
-        invoice.setZipcode("11375");
+        invoice.setName("David");
+        invoice.setStreet("100 winchester Circle");
+        invoice.setCity("Los Gatos");
+        invoice.setState("CA");
+        invoice.setZipcode("95032");
         invoice.setItem_type("Console");
-        invoice.setItem_id(45);
-        invoice.setUnit_price(new BigDecimal("499.99"));
-        invoice.setQuantity(700);
-        invoice.setSubtotal(new BigDecimal("745.98"));
-        invoice.setTax(new BigDecimal("0.50"));
-        invoice.setProcessing_fee(new BigDecimal("4.99"));
-        invoice.setTotal(new BigDecimal("750.00"));
+        invoice.setItem_id(25);
+        invoice.setUnit_price(new BigDecimal("399.99"));
+        invoice.setQuantity(50);
+        invoice.setSubtotal(new BigDecimal("500.00"));
+        invoice.setTax(new BigDecimal("1.50"));
+        invoice.setProcessing_fee(new BigDecimal("6.99"));
+        invoice.setTotal(new BigDecimal("550.00"));
 
         invoiceRepository.save(invoice);
 
         invoice = new Invoice();
-        invoice.setName("Cody");
-        invoice.setStreet("116th Avenue");
-        invoice.setCity("Forest Hills");
-        invoice.setState("New York");
-        invoice.setZipcode("11375");
+        invoice.setName("David");
+        invoice.setStreet("100 winchester Circle");
+        invoice.setCity("Los Gatos");
+        invoice.setState("CA");
+        invoice.setZipcode("95032");
         invoice.setItem_type("Console");
-        invoice.setItem_id(45);
-        invoice.setUnit_price(new BigDecimal("499.99"));
-        invoice.setQuantity(700);
-        invoice.setSubtotal(new BigDecimal("745.98"));
-        invoice.setTax(new BigDecimal("0.50"));
-        invoice.setProcessing_fee(new BigDecimal("4.99"));
-        invoice.setTotal(new BigDecimal("750.00"));
+        invoice.setItem_id(25);
+        invoice.setUnit_price(new BigDecimal("399.99"));
+        invoice.setQuantity(50);
+        invoice.setSubtotal(new BigDecimal("500.00"));
+        invoice.setTax(new BigDecimal("1.50"));
+        invoice.setProcessing_fee(new BigDecimal("6.99"));
+        invoice.setTotal(new BigDecimal("550.00"));
 
         invoiceRepository.save(invoice);
         List<Invoice> invoiceList = invoiceRepository.findAll();
@@ -99,41 +98,40 @@ public class InvoiceRepositoryTest {
     public void shouldGetInvoiceByCustomerName() {
 
         Invoice invoice = new Invoice();
-        invoice.setName("Cody");
-        invoice.setStreet("116th Avenue");
-        invoice.setCity("Forest Hills");
-        invoice.setState("New York");
-        invoice.setZipcode("11375");
+        invoice.setName("David");
+        invoice.setStreet("100 winchester Circle");
+        invoice.setCity("Los Gatos");
+        invoice.setState("CA");
+        invoice.setZipcode("95032");
         invoice.setItem_type("Console");
-        invoice.setItem_id(45);
-        invoice.setUnit_price(new BigDecimal("499.99"));
-        invoice.setQuantity(700);
-        invoice.setSubtotal(new BigDecimal("745.98"));
-        invoice.setTax(new BigDecimal("0.50"));
-        invoice.setProcessing_fee(new BigDecimal("4.99"));
-        invoice.setTotal(new BigDecimal("750.00"));
-
+        invoice.setItem_id(25);
+        invoice.setUnit_price(new BigDecimal("399.99"));
+        invoice.setQuantity(50);
+        invoice.setSubtotal(new BigDecimal("500.00"));
+        invoice.setTax(new BigDecimal("1.50"));
+        invoice.setProcessing_fee(new BigDecimal("6.99"));
+        invoice.setTotal(new BigDecimal("550.00"));
         invoiceRepository.save(invoice);
 
         invoice = new Invoice();
-        invoice.setName("Cody");
-        invoice.setStreet("116th Avenue");
-        invoice.setCity("Forest Hills");
-        invoice.setState("New York");
-        invoice.setZipcode("11375");
+        invoice.setName("David");
+        invoice.setStreet("100 winchester Circle");
+        invoice.setCity("Los Gatos");
+        invoice.setState("CA");
+        invoice.setZipcode("95032");
         invoice.setItem_type("Console");
-        invoice.setItem_id(45);
-        invoice.setUnit_price(new BigDecimal("499.99"));
-        invoice.setQuantity(700);
-        invoice.setSubtotal(new BigDecimal("745.98"));
-        invoice.setTax(new BigDecimal("0.50"));
-        invoice.setProcessing_fee(new BigDecimal("4.99"));
-        invoice.setTotal(new BigDecimal("750.00"));
+        invoice.setItem_id(25);
+        invoice.setUnit_price(new BigDecimal("399.99"));
+        invoice.setQuantity(50);
+        invoice.setSubtotal(new BigDecimal("500.00"));
+        invoice.setTax(new BigDecimal("1.50"));
+        invoice.setProcessing_fee(new BigDecimal("6.99"));
+        invoice.setTotal(new BigDecimal("550.00"));
+
 
         invoiceRepository.save(invoice);
 
-        //ACT
-        Invoice invoice1 = invoiceRepository.findByName("Cody");
+        Invoice invoice1 = invoiceRepository.findByName("David");
 
         assertEquals(invoice1.getName(), invoice);
 

@@ -31,16 +31,16 @@ public class T_shirtsRepositoryTest {
     public void shouldAddAndGetT_Shirt() {
         T_Shirt t_shirt = new T_Shirt();
         t_shirt.setSize("Medium");
-        t_shirt.setColor("Red");
-        t_shirt.setDescription("The TShirt is true to size");
-        t_shirt.setPrice(new BigDecimal("19.99"));
-        t_shirt.setQuantity(500);
+        t_shirt.setColor("Black");
+        t_shirt.setDescription("Great TShirt for everyone");
+        t_shirt.setPrice(new BigDecimal("29.99"));
+        t_shirt.setQuantity(200);
 
         t_shirt = t_shirtsRepository.save(t_shirt);
 
         Optional<T_Shirt> t_shirt1 = t_shirtsRepository.findById(t_shirt.getId());
 
-        assertEquals(t_shirt1.get(),t_shirt);
+        assertEquals(t_shirt1.get(), t_shirt);
 
     }
 
@@ -49,19 +49,19 @@ public class T_shirtsRepositoryTest {
 
         T_Shirt t_shirt = new T_Shirt();
         t_shirt.setSize("Medium");
-        t_shirt.setColor("Red");
-        t_shirt.setDescription("The TShirt is true to size");
-        t_shirt.setPrice(new BigDecimal("19.99"));
-        t_shirt.setQuantity(500);
+        t_shirt.setColor("Black");
+        t_shirt.setDescription("Great TShirt for everyone");
+        t_shirt.setPrice(new BigDecimal("29.99"));
+        t_shirt.setQuantity(200);
 
         t_shirtsRepository.save(t_shirt);
 
         t_shirt = new T_Shirt();
-        t_shirt.setSize("Large");
-        t_shirt.setColor("Blue");
-        t_shirt.setDescription("The TShirt fits big");
-        t_shirt.setPrice(new BigDecimal("10.99"));
-        t_shirt.setQuantity(700);
+        t_shirt.setSize("Medium");
+        t_shirt.setColor("Black");
+        t_shirt.setDescription("Great TShirt for everyone");
+        t_shirt.setPrice(new BigDecimal("29.99"));
+        t_shirt.setQuantity(200);
 
         t_shirtsRepository.save(t_shirt);
         List<T_Shirt> t_shirtList = t_shirtsRepository.findAll();
@@ -74,10 +74,10 @@ public class T_shirtsRepositoryTest {
 
         T_Shirt t_shirt = new T_Shirt();
         t_shirt.setSize("Medium");
-        t_shirt.setColor("Red");
-        t_shirt.setDescription("The TShirt is true to size");
-        t_shirt.setPrice(new BigDecimal("19.99"));
-        t_shirt.setQuantity(500);
+        t_shirt.setColor("Black");
+        t_shirt.setDescription("Great TShirt for everyone");
+        t_shirt.setPrice(new BigDecimal("29.99"));
+        t_shirt.setQuantity(200);
 
         t_shirt = t_shirtsRepository.save(t_shirt);
 
@@ -96,31 +96,31 @@ public class T_shirtsRepositoryTest {
 
         T_Shirt t_shirt = new T_Shirt();
         t_shirt.setSize("Medium");
+        t_shirt.setColor("Black");
+        t_shirt.setDescription("Great TShirt for everyone");
+        t_shirt.setPrice(new BigDecimal("29.99"));
+        t_shirt.setQuantity(200);
+
+        t_shirtsRepository.save(t_shirt);
+
+        t_shirt = new T_Shirt();
+        t_shirt.setSize("Medium");
+        t_shirt.setColor("Black");
+        t_shirt.setDescription("Great TShirt for everyone");
+        t_shirt.setPrice(new BigDecimal("29.99"));
+        t_shirt.setQuantity(200);
+
+        t_shirtsRepository.save(t_shirt);
+
+        t_shirt = new T_Shirt();
+        t_shirt.setSize("Medium");
         t_shirt.setColor("Red");
-        t_shirt.setDescription("The TShirt is true to size");
-        t_shirt.setPrice(new BigDecimal("19.99"));
-        t_shirt.setQuantity(500);
+        t_shirt.setDescription("Great TShirt for everyone");
+        t_shirt.setPrice(new BigDecimal("29.99"));
+        t_shirt.setQuantity(200);
 
         t_shirtsRepository.save(t_shirt);
-
-        t_shirt = new T_Shirt();
-        t_shirt.setSize("Medium");
-        t_shirt.setColor("Yellow");
-        t_shirt.setDescription("The TShirt is true to size");
-        t_shirt.setPrice(new BigDecimal("19.99"));
-        t_shirt.setQuantity(500);
-
-       t_shirtsRepository.save(t_shirt);
-
-        t_shirt = new T_Shirt();
-        t_shirt.setSize("Medium");
-        t_shirt.setColor("Yellow");
-        t_shirt.setDescription("The TShirt is in limited quantity");
-        t_shirt.setPrice(new BigDecimal("19.99"));
-        t_shirt.setQuantity(40);
-
-        t_shirtsRepository.save(t_shirt);
-        List<T_Shirt> mList = t_shirtsRepository.findByColor("Yellow");
+        List<T_Shirt> mList = t_shirtsRepository.findByColor("Black");
 
         assertEquals(2, mList.size());
 
@@ -132,63 +132,64 @@ public class T_shirtsRepositoryTest {
 
         assertEquals(0, mList.size());
     }
+
     @Test
     public void shouldGetT_ShirtsBySize() {
 
         T_Shirt t_shirt = new T_Shirt();
         t_shirt.setSize("Medium");
-        t_shirt.setColor("Red");
-        t_shirt.setDescription("The TShirt is true to size");
-        t_shirt.setPrice(new BigDecimal("19.99"));
-        t_shirt.setQuantity(500);
+        t_shirt.setColor("Black");
+        t_shirt.setDescription("Great TShirt for everyone");
+        t_shirt.setPrice(new BigDecimal("29.99"));
+        t_shirt.setQuantity(200);
+
+
+        t_shirtsRepository.save(t_shirt);
+
+        t_shirt = new T_Shirt();
+        t_shirt.setSize("Medium");
+        t_shirt.setColor("Black");
+        t_shirt.setDescription("Great TShirt for everyone");
+        t_shirt.setPrice(new BigDecimal("29.99"));
+        t_shirt.setQuantity(200);
 
         t_shirtsRepository.save(t_shirt);
 
         t_shirt = new T_Shirt();
         t_shirt.setSize("Large");
-        t_shirt.setColor("Red");
-        t_shirt.setDescription("The TShirt is true to size");
-        t_shirt.setPrice(new BigDecimal("19.99"));
-        t_shirt.setQuantity(500);
-
-        t_shirtsRepository.save(t_shirt);
-
-        t_shirt = new T_Shirt();
-        t_shirt.setSize("Large");
-        t_shirt.setColor("Blue");
-        t_shirt.setDescription("The TShirt is true to size");
-        t_shirt.setPrice(new BigDecimal("19.99"));
-        t_shirt.setQuantity(500);
+        t_shirt.setColor("Black");
+        t_shirt.setDescription("Great TShirt for everyone");
+        t_shirt.setPrice(new BigDecimal("29.99"));
+        t_shirt.setQuantity(200);
 
         t_shirtsRepository.save(t_shirt);
         List<T_Shirt> mList = t_shirtsRepository.findBySize("Large");
 
-        assertEquals(2, mList.size());
+        assertEquals(1, mList.size());
 
         mList = t_shirtsRepository.findBySize("Medium");
 
-        assertEquals(1, mList.size());
+        assertEquals(2, mList.size());
 
         mList = t_shirtsRepository.findBySize("Small");
 
         assertEquals(0, mList.size());
     }
+
     @Test
     public void shouldDeleteT_Shirt() {
 
         T_Shirt t_shirt = new T_Shirt();
         t_shirt.setSize("Medium");
-        t_shirt.setColor("Red");
-        t_shirt.setDescription("The TShirt is true to size");
-        t_shirt.setPrice(new BigDecimal("19.99"));
-        t_shirt.setQuantity(500);
+        t_shirt.setColor("Black");
+        t_shirt.setDescription("Great TShirt for everyone");
+        t_shirt.setPrice(new BigDecimal("29.99"));
+        t_shirt.setQuantity(200);
 
         t_shirt = t_shirtsRepository.save(t_shirt);
 
-        //ACT
         t_shirtsRepository.deleteById(t_shirt.getId());
 
-        //Assert...
         Optional<T_Shirt> t_shirt1 = t_shirtsRepository.findById(t_shirt.getId());
         assertFalse(t_shirt1.isPresent());
 

@@ -34,12 +34,12 @@ public class ConsoleRepositoryTest {
     public void shouldAddAndGetConsoles() {
 
         Console console = new Console();
-        console.setModel("PS5");
+        console.setModel("2020");
         console.setManufacturer("Playstation");
-        console.setMemory_amount("1TB");
+        console.setMemory_amount("2TB");
         console.setProcessor("GoodProcessor");
-        console.setPrice(new BigDecimal("499.99"));
-        console.setQuantity(300);
+        console.setPrice(new BigDecimal("799.99"));
+        console.setQuantity(150);
 
         console = consoleRepository.save(console);
 
@@ -53,22 +53,22 @@ public class ConsoleRepositoryTest {
     public void shouldGetAllConsoles() {
 
         Console console = new Console();
-        console.setModel("PS5");
+        console.setModel("2020");
         console.setManufacturer("Playstation");
-        console.setMemory_amount("1TB");
+        console.setMemory_amount("2TB");
         console.setProcessor("GoodProcessor");
-        console.setPrice(new BigDecimal("499.99"));
-        console.setQuantity(300);
+        console.setPrice(new BigDecimal("799.99"));
+        console.setQuantity(150);
 
         consoleRepository.save(console);
 
         console = new Console();
-        console.setModel("Switch");
+        console.setModel("2018");
         console.setManufacturer("Nintendo");
-        console.setMemory_amount("500GB");
+        console.setMemory_amount("1GB");
         console.setProcessor("OkayProcessor");
-        console.setPrice(new BigDecimal("199.99"));
-        console.setQuantity(340);
+        console.setPrice(new BigDecimal("299.99"));
+        console.setQuantity(240);
 
         consoleRepository.save(console);
         List<Console> consoleList = consoleRepository.findAll();
@@ -79,34 +79,33 @@ public class ConsoleRepositoryTest {
     @Test
     public void shouldUpdateConsole() {
         Console console = new Console();
-        console.setModel("PS5");
+        console.setModel("2020");
         console.setManufacturer("Playstation");
-        console.setMemory_amount("1TB");
+        console.setMemory_amount("2TB");
         console.setProcessor("GoodProcessor");
-        console.setPrice(new BigDecimal("499.99"));
-        console.setQuantity(300);
+        console.setPrice(new BigDecimal("799.99"));
+        console.setQuantity(150);
 
         console = consoleRepository.save(console);
 
-        console.setModel("XboxX");
+        console.setModel("2021");
 
         console = consoleRepository.save(console);
 
-        //Assert...
         Optional<Console> console1 = consoleRepository.findById(console.getId());
 
-        assertEquals(console1.get(),console);
+        assertEquals(console1.get(), console);
     }
 
     @Test
     public void shouldDeleteConsole() {
         Console console = new Console();
-        console.setModel("PS5");
+        console.setModel("2020");
         console.setManufacturer("Playstation");
-        console.setMemory_amount("1TB");
+        console.setMemory_amount("2TB");
         console.setProcessor("GoodProcessor");
-        console.setPrice(new BigDecimal("499.99"));
-        console.setQuantity(300);
+        console.setPrice(new BigDecimal("799.99"));
+        console.setQuantity(150);
 
 
         consoleRepository.save(console);
@@ -122,32 +121,32 @@ public class ConsoleRepositoryTest {
     public void shouldGetConsolesByManufacturer() {
 
         Console console = new Console();
-        console.setModel("PS5");
+        console.setModel("2020");
         console.setManufacturer("Playstation");
-        console.setMemory_amount("1TB");
+        console.setMemory_amount("2TB");
         console.setProcessor("GoodProcessor");
-        console.setPrice(new BigDecimal("499.99"));
-        console.setQuantity(300);
+        console.setPrice(new BigDecimal("799.99"));
+        console.setQuantity(150);
 
         consoleRepository.save(console);
 
         console = new Console();
-        console.setModel("PS5");
+        console.setModel("2019");
         console.setManufacturer("Amazon");
         console.setMemory_amount("1TB");
         console.setProcessor("GoodProcessor");
-        console.setPrice(new BigDecimal("499.99"));
-        console.setQuantity(300);
+        console.setPrice(new BigDecimal("399.99"));
+        console.setQuantity(150);
 
         consoleRepository.save(console);
 
         console = new Console();
-        console.setModel("PS5");
+        console.setModel("2019");
         console.setManufacturer("Amazon");
-        console.setMemory_amount("670GB");
+        console.setMemory_amount("1TB");
         console.setProcessor("GoodProcessor");
-        console.setPrice(new BigDecimal("499.99"));
-        console.setQuantity(300);
+        console.setPrice(new BigDecimal("399.99"));
+        console.setQuantity(150);
 
         consoleRepository.save(console);
         List<Console> mList = consoleRepository.findByManufacturer("Amazon");

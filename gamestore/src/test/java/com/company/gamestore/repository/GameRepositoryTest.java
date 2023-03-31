@@ -30,16 +30,15 @@ public class GameRepositoryTest {
     public void shouldAddAndGetGame() {
 
         Game game = new Game();
-        game.setTitle("Portal");
+        game.setTitle("Fifa 23");
         game.setEsrb_rating("Rated E");
-        game.setDescription("A game where you make portals to solve puzzles");
-        game.setPrice(new BigDecimal("59.99"));
-        game.setStudio("Bethesda");
-        game.setQuantity(400);
+        game.setDescription("For everyone");
+        game.setPrice(new BigDecimal("49.99"));
+        game.setStudio("Fifa");
+        game.setQuantity(40);
 
         game = gameRepository.save(game);
 
-        //Assert...
         Optional<Game> game1 = gameRepository.findById(game.getId());
 
         assertEquals(game1.get(), game);
@@ -50,12 +49,12 @@ public class GameRepositoryTest {
     public void shouldGetAllGames() {
 
         Game game = new Game();
-        game.setTitle("Portal");
+        game.setTitle("Fifa 23");
         game.setEsrb_rating("Rated E");
-        game.setDescription("A game where you make portals to solve puzzles");
-        game.setPrice(new BigDecimal("59.99"));
-        game.setStudio("Bethesda");
-        game.setQuantity(400);
+        game.setDescription("For everyone");
+        game.setPrice(new BigDecimal("49.99"));
+        game.setStudio("Fifa");
+        game.setQuantity(40);
 
         gameRepository.save(game);
 
@@ -63,9 +62,9 @@ public class GameRepositoryTest {
         game.setTitle("Fortnite");
         game.setEsrb_rating("Rated T");
         game.setDescription("A game where you make people until the end where there is only 1 left");
-        game.setPrice(new BigDecimal("00.00"));
+        game.setPrice(new BigDecimal("30.00"));
         game.setStudio("Epic Games");
-        game.setQuantity(700);
+        game.setQuantity(70);
 
         gameRepository.save(game);
         List<Game> gameList = gameRepository.findAll();
@@ -77,12 +76,12 @@ public class GameRepositoryTest {
     public void shouldUpdateGame() {
 
         Game game = new Game();
-        game.setTitle("Portal");
+        game.setTitle("Fifa 23");
         game.setEsrb_rating("Rated E");
-        game.setDescription("A game where you make portals to solve puzzles");
-        game.setPrice(new BigDecimal("59.99"));
-        game.setStudio("Bethesda");
-        game.setQuantity(400);
+        game.setDescription("For everyone");
+        game.setPrice(new BigDecimal("49.99"));
+        game.setStudio("Fifa");
+        game.setQuantity(40);
 
         game = gameRepository.save(game);
 
@@ -90,49 +89,48 @@ public class GameRepositoryTest {
 
         game = gameRepository.save(game);
 
-        //Assert...
         Optional<Game> game1 = gameRepository.findById(game.getId());
 
-        assertEquals(game1.get(),game);
+        assertEquals(game1.get(), game);
     }
 
     @Test
     public void shouldGetGamesByStudio() {
 
         Game game = new Game();
-        game.setTitle("Portal");
+        game.setTitle("Fifa 23");
         game.setEsrb_rating("Rated E");
-        game.setDescription("A game where you make portals to solve puzzles");
-        game.setPrice(new BigDecimal("59.99"));
-        game.setStudio("Bethesda");
-        game.setQuantity(400);
+        game.setDescription("For everyone");
+        game.setPrice(new BigDecimal("49.99"));
+        game.setStudio("Fifa");
+        game.setQuantity(40);
 
         gameRepository.save(game);
 
         game = new Game();
-        game.setTitle("Portal");
+        game.setTitle("Fifa 23");
         game.setEsrb_rating("Rated E");
-        game.setDescription("A game where you make portals to solve puzzles");
-        game.setPrice(new BigDecimal("59.99"));
+        game.setDescription("For everyone");
+        game.setPrice(new BigDecimal("49.99"));
         game.setStudio("Square");
-        game.setQuantity(400);
+        game.setQuantity(40);
 
         gameRepository.save(game);
 
         game = new Game();
-        game.setTitle("Portal");
+        game.setTitle("Fifa 23");
         game.setEsrb_rating("Rated E");
-        game.setDescription("A game where you make portals to solve puzzles");
-        game.setPrice(new BigDecimal("59.99"));
+        game.setDescription("For everyone");
+        game.setPrice(new BigDecimal("49.99"));
         game.setStudio("Square");
-        game.setQuantity(300);
+        game.setQuantity(40);
 
         gameRepository.save(game);
         List<Game> mList = gameRepository.findByStudio("Square");
 
         assertEquals(2, mList.size());
 
-        mList = gameRepository.findByStudio("Bethesda");
+        mList = gameRepository.findByStudio("Fifa");
 
         assertEquals(1, mList.size());
 
@@ -140,36 +138,38 @@ public class GameRepositoryTest {
 
         assertEquals(0, mList.size());
     }
+
     @Test
     public void shouldGetGamesByESRB_Rating() {
 
         Game game = new Game();
-        game.setTitle("Portal");
+        game.setTitle("Fifa 23");
+        game.setEsrb_rating("Rated M");
+        game.setDescription("For everyone");
+        game.setPrice(new BigDecimal("49.99"));
+        game.setStudio("Fifa");
+        game.setQuantity(40);
+
+        gameRepository.save(game);
+
+        game = new Game();
+        game.setTitle("Fifa 23");
+        game.setEsrb_rating("Rated M");
+        game.setDescription("For everyone");
+        game.setPrice(new BigDecimal("49.99"));
+        game.setStudio("Square");
+        game.setQuantity(40);
+
+        gameRepository.save(game);
+
+        game = new Game();
+        game.setTitle("Fifa 23");
         game.setEsrb_rating("Rated E");
-        game.setDescription("A game where you make portals to solve puzzles");
-        game.setPrice(new BigDecimal("59.99"));
-        game.setStudio("Bethesda");
-        game.setQuantity(400);
+        game.setDescription("For everyone");
+        game.setPrice(new BigDecimal("49.99"));
+        game.setStudio("Square");
+        game.setQuantity(40);
 
-        gameRepository.save(game);
-
-        game = new Game();
-        game.setTitle("PayDay");
-        game.setEsrb_rating("Rated M");
-        game.setDescription("A game where you essentially rob banks");
-        game.setPrice(new BigDecimal("59.99"));
-        game.setStudio("Bethesda");
-        game.setQuantity(400);
-
-        gameRepository.save(game);
-
-        game = new Game();
-        game.setTitle("Red Dead Redemption");
-        game.setEsrb_rating("Rated M");
-        game.setDescription("A game where you play an outlaw in the West");
-        game.setPrice(new BigDecimal("59.99"));
-        game.setStudio("Bethesda");
-        game.setQuantity(400);
 
         gameRepository.save(game);
         List<Game> mList = gameRepository.findByEsrbRating("Rated M");
@@ -189,63 +189,61 @@ public class GameRepositoryTest {
     public void shouldGetGamesByTitle() {
 
         Game game = new Game();
-        game.setTitle("Portal");
-        game.setEsrb_rating("Rated E");
-        game.setDescription("A game where you make portals to solve puzzles");
-        game.setPrice(new BigDecimal("59.99"));
-        game.setStudio("Bethesda");
-        game.setQuantity(400);
+        game.setTitle("Fifa 23");
+        game.setEsrb_rating("Rated M");
+        game.setDescription("For everyone");
+        game.setPrice(new BigDecimal("49.99"));
+        game.setStudio("Fifa");
+        game.setQuantity(40);
 
         gameRepository.save(game);
 
         game = new Game();
-        game.setTitle("Red Dead Redemption");
+        game.setTitle("Fifa 23");
         game.setEsrb_rating("Rated M");
-        game.setDescription("A game where you play an outlaw in the West");
-        game.setPrice(new BigDecimal("59.99"));
-        game.setStudio("Bethesda");
-        game.setQuantity(400);
+        game.setDescription("For everyone");
+        game.setPrice(new BigDecimal("49.99"));
+        game.setStudio("Square");
+        game.setQuantity(40);
 
         gameRepository.save(game);
 
         game = new Game();
-        game.setTitle("Red Dead Redemption");
+        game.setTitle("FIFA");
         game.setEsrb_rating("Rated M");
-        game.setDescription("A game where you play an outlaw in the West");
-        game.setPrice(new BigDecimal("59.99"));
-        game.setStudio("Bethesda");
-        game.setQuantity(500);
+        game.setDescription("For everyone");
+        game.setPrice(new BigDecimal("49.99"));
+        game.setStudio("Square");
+        game.setQuantity(40);
 
         gameRepository.save(game);
-        List<Game> mList = gameRepository.findByTitle("Red Dead Redemption");
+        List<Game> mList = gameRepository.findByTitle("Fifa 23");
 
         assertEquals(2, mList.size());
 
         mList = gameRepository.findByTitle("Portal");
 
-        assertEquals(1, mList.size());
+        assertEquals(0, mList.size());
 
         mList = gameRepository.findByTitle("FIFA");
 
-        assertEquals(0, mList.size());
+        assertEquals(1, mList.size());
     }
 
     @Test
     public void shouldDeleteGame() {
         Game game = new Game();
-        game.setTitle("Portal");
-        game.setEsrb_rating("Rated E");
-        game.setDescription("A game where you make portals to solve puzzles");
-        game.setPrice(new BigDecimal("59.99"));
-        game.setStudio("Bethesda");
-        game.setQuantity(400);
+        game.setTitle("Fifa 23");
+        game.setEsrb_rating("Rated M");
+        game.setDescription("For everyone");
+        game.setPrice(new BigDecimal("49.99"));
+        game.setStudio("Fifa");
+        game.setQuantity(40);
 
         gameRepository.save(game);
 
-        //ACT
         gameRepository.deleteById(game.getId());
 
-        //Assert...
         Optional<Game> game1 = gameRepository.findById(game.getId());
         assertFalse(game1.isPresent());
 
