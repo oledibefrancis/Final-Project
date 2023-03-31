@@ -1,7 +1,10 @@
 package com.company.gamestore.controller;
 
+import com.company.gamestore.model.Console;
 import com.company.gamestore.model.Game;
-import com.company.gamestore.repository.GameRepository;
+import com.company.gamestore.model.Invoice;
+import com.company.gamestore.repository.ConsoleRepository;
+import com.company.gamestore.repository.InvoiceRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,6 +19,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.math.BigDecimal;
 import java.util.Optional;
 
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
@@ -23,53 +27,64 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(GameController.class)
-public class GameControllerTest {
+@WebMvcTest(ConsoleController.class)
+public class ConsoleControllerTest {
+
     @Autowired
     private MockMvc mockMvc;
 
     @MockBean
-    GameRepository gameRepository;
+    ConsoleRepository consoleRepository;
 
     private final ObjectMapper mapper = new ObjectMapper();
 
-
-    public Game createGame() {
-        Game game = new Game();
-        game.setTitle("Fifa 23");
-        game.setPrice(BigDecimal.valueOf(30));
-        game.setStudio("Fifa");
-        game.setQuantity(10);
-        game.setDescription("For everyone");
-        game.setEsrb_rating("18");
-        return game;
+    public Console createConsole() {
+        Console console = new Console();
+        console.setPrice(BigDecimal.valueOf(900.00));
+        console.setManufacturer("Play Station");
+        console.setQuantity(8);
+        console.setModel("2019");
+        console.setMemory_amount("45");
+        console.setProcessor("CPU");
+        return console;
     }
-
 
     @Before
     public void setUp() throws Exception {
-        gameRepository.deleteAll();
+        consoleRepository.deleteAll();
     }
+
 
 
     @Test
     public void testGetAllGames() throws Exception {
-        mockMvc.perform(get("/game"))
+        mockMvc.perform(get("/console"))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void testGetConsoleById() throws Exception {
+        Console console = createConsole();
+
+        when(consoleRepository.findById(console.getId())).thenReturn(Optional.of(console));
+
+        mockMvc.perform(get("/console/id/" + console.getId()))
                 .andDo(print())
                 .andExpect(status().isOk());
     }
 
 
     @Test
-    public void testAddGame() throws Exception {
-        Game game = createGame();
+    public void testCreateConsole() throws Exception {
+        Console console = createConsole();
 
-        when(gameRepository.findById(game.getId())).thenReturn(Optional.of(game));
+        when(consoleRepository.findById(console.getId())).thenReturn(Optional.of(console));
 
-        String inputJson = mapper.writeValueAsString(game);
+        String inputJson = mapper.writeValueAsString(console);
 
         mockMvc.perform(
-                        post("/game")
+                        post("/console")
                                 .content(inputJson)
                                 .contentType(MediaType.APPLICATION_JSON)
                 )
@@ -79,14 +94,14 @@ public class GameControllerTest {
 
     @Test
     public void testUpdateGame() throws Exception {
-        Game game = createGame();
+        Console console = createConsole();
 
-        when(gameRepository.findById(game.getId())).thenReturn(Optional.of(game));
+        when(consoleRepository.findById(console.getId())).thenReturn(Optional.of(console));
 
-        String inputJson = mapper.writeValueAsString(game);
+        String inputJson = mapper.writeValueAsString(console);
 
         mockMvc.perform(
-                        put("/game" + game.getId())
+                        put("/console" + console.getId())
                                 .content(inputJson)
                                 .contentType(MediaType.APPLICATION_JSON)
                 )
@@ -96,13 +111,13 @@ public class GameControllerTest {
 
     @Test
     public void testDeleteGame() throws Exception {
-        Game game = createGame();
+        Console console = createConsole();
 
-        when(gameRepository.findById(game.getId())).thenReturn(Optional.of(game));
+        when(consoleRepository.findById(console.getId())).thenReturn(Optional.of(console));
 
-        gameRepository.deleteById(game.getId());
+        consoleRepository.deleteById(console.getId());
 
-        mockMvc.perform(delete("/game/" + game.getId()))
+        mockMvc.perform(delete("/console/" + console.getId()))
                 .andDo(print())
                 .andExpect(status().isNoContent());
     }
