@@ -42,8 +42,8 @@ public class GraphController {
     }
 
     @QueryMapping
-    public List<Game> findGameByESRB(@Argument String esrb){
-        return gameRepository.findByEsrbRating(esrb);
+    public List<Game> findGameByESRB(@Argument String esrb_rating){
+        return gameRepository.findByEsrbRating(esrb_rating);
     }
 
     @QueryMapping
