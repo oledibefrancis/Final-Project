@@ -14,7 +14,8 @@ import java.util.Objects;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "invoice")
 
-public class Invoice  implements Serializable {
+public class Invoice implements Serializable  {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
