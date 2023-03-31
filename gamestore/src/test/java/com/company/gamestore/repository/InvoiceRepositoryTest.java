@@ -131,9 +131,9 @@ public class InvoiceRepositoryTest {
 
         invoiceRepository.save(invoice);
 
-        Invoice invoice1 = invoiceRepository.findByName("David");
+        List<Invoice> invoiceList = invoiceRepository.findByName("David");
 
-        assertEquals(invoice1.getName(), invoice);
+        assertEquals(invoiceList.size(), 2);
 
     }
 

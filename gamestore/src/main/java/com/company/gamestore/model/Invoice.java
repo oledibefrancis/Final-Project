@@ -17,7 +17,8 @@ import java.util.Objects;
 public class Invoice implements Serializable  {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "invoice_id")
     private int id;
     @NotEmpty(message = "You must supply a value for name.")
     @Size(max = 50, message = "You must supply a value less than 50 characters.")
