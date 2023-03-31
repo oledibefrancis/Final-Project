@@ -78,7 +78,7 @@ public class T_shirtsControllerTest {
         String inputJson = mapper.writeValueAsString(tShirt);
 
         mockMvc.perform(
-                        put("/t_shirts" + tShirt.getId())
+                        put("/t_shirts")
                                 .content(inputJson)
                                 .contentType(MediaType.APPLICATION_JSON)
                 )
