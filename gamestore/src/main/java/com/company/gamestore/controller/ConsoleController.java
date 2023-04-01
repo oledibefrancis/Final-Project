@@ -40,6 +40,7 @@ public class ConsoleController {
         return  repo.findById(id);
     }
 
+
     @GetMapping("/console/manufacturer/{manufacturer}")
     @ResponseStatus(value = HttpStatus.OK)
     public List<Console> getConsoleByManufacturer(@PathVariable String manufacturer){
