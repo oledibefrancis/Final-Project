@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+
 @RestController
 public class ConsoleController {
 
@@ -37,6 +39,7 @@ public class ConsoleController {
     public Console getConsoleById(@PathVariable int id){
         return  serviceLayer.findConsole(id);
     }
+
 
     @GetMapping("/console/manufacturer/{manufacturer}")
     @ResponseStatus(value = HttpStatus.OK)

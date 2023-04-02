@@ -26,6 +26,7 @@ public class Game implements Serializable {
     private String title;
     @NotEmpty(message = "You must supply a value for esrb rating.")
     @Size(max = 50, message = "You must supply a value less than 50 characters.")
+    @Column(name="esrb_rating")
     private String esrbRating;
     @NotEmpty(message = "You must supply a value for description.")
     @Size(max = 255, message = "You must supply a value less than 255 characters.")

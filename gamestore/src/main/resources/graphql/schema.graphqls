@@ -1,5 +1,5 @@
 type Game{
-    game_id:Int
+    id:Int
     title:String
     esrb_rating:String
     description:String
@@ -9,7 +9,7 @@ type Game{
 }
 
 type Console{
-    console_id:Int
+    id:Int
     model:String
     manufacturer:String
     memory_amount:String
@@ -21,10 +21,10 @@ type Console{
 type Query{
     findByGameId(game_id:Int): Game
     findByConsoleId(console_id:Int):Console
-    findAllGames:Game
-    findAllConsole:Console
-    findByGameTitle:Game
-    findByGameESRB:Game
-    findByGameStudio:Game
-    findConsoleByManufacturer:Console
+    findAllGames:[Game]
+    findAllConsoles:[Console]
+    findByGameTitle(title:String):[Game]
+    findGameByESRB(esrb_rating:String):[Game]
+    findGameByStudio(studio:String):[Game]
+    findConsoleByManufacturer(manufacturer:String):[Console]
 }

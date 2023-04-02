@@ -47,7 +47,7 @@ public class GameController {
         return  serviceLayer.findAllGames();
     }
 
-    @GetMapping("/game/studio/{Studio}")
+    @GetMapping("/game/{studio}")
     @ResponseStatus(value = HttpStatus.OK)
     public List<Game> getGameByStudio(@PathVariable String studio){
         return  serviceLayer.findByStudio(studio);
