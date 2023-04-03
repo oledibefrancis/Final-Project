@@ -93,7 +93,7 @@ public class ConsoleControllerTest {
     }
 
     @Test
-    public void testUpdateGame() throws Exception {
+    public void testUpdateConsole() throws Exception {
         Console console = createConsole();
 
         when(consoleRepository.findById(console.getId())).thenReturn(Optional.of(console));
@@ -110,7 +110,7 @@ public class ConsoleControllerTest {
     }
 
     @Test
-    public void testDeleteGame() throws Exception {
+    public void testDeleteConsole() throws Exception {
         Console console = createConsole();
 
         when(consoleRepository.findById(console.getId())).thenReturn(Optional.of(console));

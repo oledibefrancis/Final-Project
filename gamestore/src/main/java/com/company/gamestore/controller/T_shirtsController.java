@@ -2,60 +2,59 @@ package com.company.gamestore.controller;
 
 
 import com.company.gamestore.model.T_Shirt;
-import com.company.gamestore.repository.T_shirtsRepository;
+import com.company.gamestore.service.ServiceLayer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class T_shirtsController {
 
     @Autowired
-    T_shirtsRepository repo;
+    ServiceLayer serviceLayer;
 
     @PostMapping("/t_shirts")
     @ResponseStatus(HttpStatus.CREATED)
     public T_Shirt createTShirt(@RequestBody T_Shirt tShirts){
-        return repo.save(tShirts);
+        return serviceLayer.saveTshirt(tShirts);
     }
 
     @PutMapping("/t_shirts")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public T_Shirt updateTShirt(@RequestBody T_Shirt tShirt){
-        return repo.save(tShirt);
+    public void updateTShirt(@RequestBody T_Shirt tShirt){
+         serviceLayer.updateTShirt(tShirt);
     }
 
 
     @DeleteMapping("/t_shirts/{id}")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void deleteTShirt(@PathVariable int id){
-        repo.deleteById(id);
+        serviceLayer.deleteTShirt(id);
     }
 
     @GetMapping("/t_shirts/id/{id}")
     @ResponseStatus(value = HttpStatus.OK)
-    public Optional<T_Shirt> getTShirtById(@PathVariable int id){
-        return  repo.findById(id);
+    public T_Shirt getTShirtById(@PathVariable int id){
+        return  serviceLayer.findTShirt(id);
     }
 
     @GetMapping("/t_shirts")
     @ResponseStatus(value = HttpStatus.OK)
     public List<T_Shirt> getAllTShirt(){
-        return  repo.findAll();
+        return  serviceLayer.findAllTShirts();
     }
 
     @GetMapping("/t_shirts/color/{color}")
     @ResponseStatus(value = HttpStatus.OK)
     public List<T_Shirt> getTShirtByColor(@PathVariable String color){
-        return  repo.findByColor(color);
+        return  serviceLayer.findByColor(color);
     }
 
     @GetMapping("/t_shirts/size/{size}")
     @ResponseStatus(value = HttpStatus.OK)
     public List<T_Shirt> getTShirtBySize(@PathVariable String size){
-        return  repo.findBySize(size);
+        return  serviceLayer.findBySize(size);
     }
 }
