@@ -9,12 +9,15 @@ import com.company.gamestore.repository.GameRepository;
 import com.company.gamestore.repository.InvoiceRepository;
 import com.company.gamestore.repository.T_shirtsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Component
+@ComponentScan("com.company.gamestore.repository")
 public class ServiceLayer {
     private ConsoleRepository consoleRepository;
     private GameRepository gameRepository;

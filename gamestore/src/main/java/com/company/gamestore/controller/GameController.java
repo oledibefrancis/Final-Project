@@ -5,6 +5,7 @@ import com.company.gamestore.model.Game;
 import com.company.gamestore.repository.GameRepository;
 import com.company.gamestore.service.ServiceLayer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@ComponentScan("com.company.gamestore.service")
 public class GameController {
 
     @Autowired

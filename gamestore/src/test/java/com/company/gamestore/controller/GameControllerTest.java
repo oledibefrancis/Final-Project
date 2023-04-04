@@ -1,7 +1,10 @@
 package com.company.gamestore.controller;
 
 import com.company.gamestore.model.Game;
+import com.company.gamestore.repository.ConsoleRepository;
 import com.company.gamestore.repository.GameRepository;
+import com.company.gamestore.repository.InvoiceRepository;
+import com.company.gamestore.repository.T_shirtsRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,7 +32,17 @@ public class GameControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
+    ConsoleRepository consoleRepository;
+
+    @MockBean
     GameRepository gameRepository;
+
+    @MockBean
+    InvoiceRepository invoiceRepository;
+
+    @MockBean
+    T_shirtsRepository t_shirtsRepository;
+
 
     private final ObjectMapper mapper = new ObjectMapper();
 

@@ -4,7 +4,9 @@ import com.company.gamestore.model.Console;
 import com.company.gamestore.model.Game;
 import com.company.gamestore.model.Invoice;
 import com.company.gamestore.repository.ConsoleRepository;
+import com.company.gamestore.repository.GameRepository;
 import com.company.gamestore.repository.InvoiceRepository;
+import com.company.gamestore.repository.T_shirtsRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,6 +38,14 @@ public class ConsoleControllerTest {
     @MockBean
     ConsoleRepository consoleRepository;
 
+    @MockBean
+    GameRepository gameRepository;
+
+    @MockBean
+    InvoiceRepository invoiceRepository;
+
+    @MockBean
+    T_shirtsRepository t_shirtsRepository;
     private final ObjectMapper mapper = new ObjectMapper();
 
     public Console createConsole() {
@@ -67,7 +77,7 @@ public class ConsoleControllerTest {
     public void testGetConsoleById() throws Exception {
         Console console = createConsole();
 
-        when(consoleRepository.findById(console.getId())).thenReturn(Optional.of(console));
+//        when(consoleRepository.findById(console.getId())).thenReturn(Optional.of(console));
 
         mockMvc.perform(get("/console/id/" + console.getId()))
                 .andDo(print())
