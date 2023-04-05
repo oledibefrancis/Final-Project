@@ -26,8 +26,8 @@ public class InvoiceController {
 
     @GetMapping("/invoice")
     @ResponseStatus(value = HttpStatus.OK)
-    public void getAllInvoice(){
-        serviceLayer.findAllInvoices();
+    public List<Invoice> getAllInvoice(){
+        return serviceLayer.findAllInvoices();
     }
 
     @GetMapping("/invoice/id/{id}")
