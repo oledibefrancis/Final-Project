@@ -4,12 +4,14 @@ package com.company.gamestore.controller;
 import com.company.gamestore.model.T_Shirt;
 import com.company.gamestore.service.ServiceLayer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@ComponentScan("com.company.gamestore.service")
 public class T_shirtsController {
 
     @Autowired
