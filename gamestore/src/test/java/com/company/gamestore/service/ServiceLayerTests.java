@@ -4,10 +4,7 @@ import com.company.gamestore.model.Console;
 import com.company.gamestore.model.Game;
 import com.company.gamestore.model.Invoice;
 import com.company.gamestore.model.T_Shirt;
-import com.company.gamestore.repository.ConsoleRepository;
-import com.company.gamestore.repository.GameRepository;
-import com.company.gamestore.repository.InvoiceRepository;
-import com.company.gamestore.repository.T_shirtsRepository;
+import com.company.gamestore.repository.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -34,6 +31,9 @@ public class ServiceLayerTests {
 
     T_shirtsRepository t_shirtsRepository;
 
+    TaxRepository taxRepository;
+    FeeRepository feeRepository;
+
     @Before
     public void setUp() throws Exception {
         setUpConsoleRepositoryMock();
@@ -41,7 +41,7 @@ public class ServiceLayerTests {
         setUpInvoiceRepositoryMock();
         setUpT_shirtsRepositoryMock();
 
-        service = new ServiceLayer(consoleRepository, gameRepository, invoiceRepository, t_shirtsRepository);
+        service = new ServiceLayer(consoleRepository, gameRepository, invoiceRepository, t_shirtsRepository, feeRepository, taxRepository);
     }
 
     @Test
