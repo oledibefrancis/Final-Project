@@ -9,7 +9,7 @@
 Video Link: [Demo] (We can add this later)
 
 # Springboot Project
-This project is a spring application that creates six java mdoels: consoles, games, invoices, t-shirts, fees, and taxes. It has four REST API's (consoles, games, invoices, t-shirts) with CRUD capabilities. It also has a database with tables for each java model. Each REST API has the ability to create, read, update, and delete instances of the class in the database. The project also implements GraphQL to allow users to use advanced queries easily.
+This project is a spring application that creates six java models: consoles, games, invoices, t-shirts, fees, and taxes. It has four REST API's (consoles, games, invoices, t-shirts) with CRUD capabilities. It also has a database with tables for each java model. Each REST API has the ability to create, read, update, and delete instances of the class in the database. The project also implements GraphQL to allow users to use advanced queries easily.
 
 Contributors
 
