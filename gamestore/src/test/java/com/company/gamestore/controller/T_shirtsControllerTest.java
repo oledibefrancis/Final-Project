@@ -2,14 +2,12 @@ package com.company.gamestore.controller;
 
 import com.company.gamestore.model.Game;
 import com.company.gamestore.model.T_Shirt;
-import com.company.gamestore.repository.ConsoleRepository;
-import com.company.gamestore.repository.GameRepository;
-import com.company.gamestore.repository.InvoiceRepository;
-import com.company.gamestore.repository.T_shirtsRepository;
+import com.company.gamestore.repository.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
@@ -27,6 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(T_shirtsController.class)
+@AutoConfigureMockMvc(addFilters = false)
 public class T_shirtsControllerTest {
     @Autowired
     private MockMvc mockMvc;
@@ -42,6 +41,12 @@ public class T_shirtsControllerTest {
 
     @MockBean
     T_shirtsRepository t_shirtsRepository;
+
+    @MockBean
+    FeeRepository feeRepository;
+
+    @MockBean
+    TaxRepository taxRepository;
 
     private final ObjectMapper mapper = new ObjectMapper();
 
