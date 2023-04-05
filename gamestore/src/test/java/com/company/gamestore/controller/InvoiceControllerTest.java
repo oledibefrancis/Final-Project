@@ -2,15 +2,13 @@ package com.company.gamestore.controller;
 
 import com.company.gamestore.model.Game;
 import com.company.gamestore.model.Invoice;
-import com.company.gamestore.repository.ConsoleRepository;
-import com.company.gamestore.repository.GameRepository;
-import com.company.gamestore.repository.InvoiceRepository;
-import com.company.gamestore.repository.T_shirtsRepository;
+import com.company.gamestore.repository.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
@@ -30,6 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(InvoiceController.class)
+@AutoConfigureMockMvc(addFilters = false)
 public class InvoiceControllerTest {
     @Autowired
     private MockMvc mockMvc;
@@ -46,27 +45,44 @@ public class InvoiceControllerTest {
     @MockBean
     T_shirtsRepository t_shirtsRepository;
 
+    @MockBean
+    FeeRepository feeRepository;
+
+    @MockBean
+    TaxRepository taxRepository;
+
     private final ObjectMapper mapper = new ObjectMapper();
 
     public Invoice createInvoice() {
         Invoice invoice = new Invoice();
-        invoice.setCity("New York");
-        invoice.setSubtotal(BigDecimal.valueOf(30));
-        invoice.setQuantity(86);
-        invoice.setName("fifa 23");
-        invoice.setQuantity(23);
-        invoice.setProcessing_fee(BigDecimal.valueOf(30));
-        invoice.setItem_type("New type");
-        invoice.setStreet("new street");
-        invoice.setItem_id(10);
-        invoice.setUnit_price(BigDecimal.valueOf(93));
-        invoice.setZipcode("101212");
-        invoice.setTax(BigDecimal.valueOf(30));
-        invoice.setItem_type("Adventure game");
-        invoice.setTotal(BigDecimal.valueOf(30));
+        invoice.setName("Customer 1");
+        invoice.setCity("Clovis");
+        invoice.setStreet("100 Main Street");
+        invoice.setState("CA");
+        invoice.setZipcode("93612");
+        invoice.setItem_type("Game");
+        invoice.setItem_id(70);
+        invoice.setQuantity(12);
         return invoice;
     }
 
+    public Invoice expectedInvoice() {
+        Invoice invoice = new Invoice();
+        invoice.setName("Customer 1");
+        invoice.setCity("Clovis");
+        invoice.setStreet("100 Main Street");
+        invoice.setState("CA");
+        invoice.setZipcode("93612");
+        invoice.setItem_type("Game");
+        invoice.setItem_id(70);
+        invoice.setQuantity(12);
+        invoice.setUnit_price(BigDecimal.valueOf(49.99));
+        invoice.setSubtotal(BigDecimal.valueOf(599.88));
+        invoice.setTax(BigDecimal.valueOf(35.9928));
+        invoice.setProcessing_fee(BigDecimal.valueOf(16.98));
+        invoice.setTotal(BigDecimal.valueOf(652.8528));
+        return invoice;
+    }
 
 
     @Before
