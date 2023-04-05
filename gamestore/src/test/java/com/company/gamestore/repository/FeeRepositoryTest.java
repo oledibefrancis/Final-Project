@@ -61,7 +61,7 @@ public class FeeRepositoryTest {
     // Test Get by Id
     @Test
     public void testGetFeeById() {
-        Optional<Fee> feeFromRepo = feeRepository.findById("Fifa 23");
+        Optional<Fee> feeFromRepo = feeRepository.findById("God of War");
         assertEquals(feeFromRepo.get(), fee1);
     }
 
