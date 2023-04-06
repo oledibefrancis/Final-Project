@@ -7,6 +7,11 @@
 
 Video Link: [Demo](https://www.youtube.com/watch?v=EAGKRjKGmho)
 
+# Powerpoint Presentation: 
+- Linked below is the link to a powerpoint of our project, the technologies we used and more in-depth details like our successes and shortcomings
+
+Powerpoint: [Link](https://docs.google.com/presentation/d/1WPIDwrryXc3bxohnSZqfVKnM_Ue0sxcpjlumHyQluJ8/edit?usp=sharing)
+
 # Springboot Project
 This project is a spring application that creates six java models: consoles, games, invoices, t-shirts, fees, and taxes. It has four REST API's (consoles, games, invoices, t-shirts) with CRUD capabilities. It also has a database with tables for each java model. Each REST API has the ability to create, read, update, and delete instances of the class in the database. The project also implements GraphQL to allow users to use advanced search queries easily.
 
