@@ -6,10 +6,12 @@
 - Attatched below is the link to a video review we made of the project. It includes a brief overview of the codebase and a demo of the REST API's.
 - To view the video, click the link and select "view raw". The video will be downloaded in mp4 format.
 
-Video Link: [Demo] (We can add this later)
+Video Link: [Demo](https://www.youtube.com/watch?v=EAGKRjKGmho)
 
 # Springboot Project
-This project is a spring application that creates six java models: consoles, games, invoices, t-shirts, fees, and taxes. It has four REST API's (consoles, games, invoices, t-shirts) with CRUD capabilities. It also has a database with tables for each java model. Each REST API has the ability to create, read, update, and delete instances of the class in the database. The project also implements GraphQL to allow users to use advanced queries easily.
+This project is a spring application that creates six java models: consoles, games, invoices, t-shirts, fees, and taxes. It has four REST API's (consoles, games, invoices, t-shirts) with CRUD capabilities. It also has a database with tables for each java model. Each REST API has the ability to create, read, update, and delete instances of the class in the database. The project also implements GraphQL to allow users to use advanced search queries easily.
+
+The project uses CI/CD practices with CircleCi. The database and back-end are running on AWS. Finally, the data stored in the management system is protected using OAuth.
 
 Contributors
 
