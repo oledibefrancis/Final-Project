@@ -3,8 +3,7 @@
 ![Netflix](https://img.shields.io/badge/Netflix-E50914?style=for-the-badge&logo=netflix&logoColor=white)
 
 # Video Showing Working Applicaion: 
-- Attatched below is the link to a video review we made of the project. It includes a brief overview of the codebase and a demo of the REST API's.
-- To view the video, click the link and select "view raw". The video will be downloaded in mp4 format.
+- Linked below is the link to a video review we made of the project. It includes a brief overview of the codebase and a demo of the REST API's.
 
 Video Link: [Demo](https://www.youtube.com/watch?v=EAGKRjKGmho)
 
