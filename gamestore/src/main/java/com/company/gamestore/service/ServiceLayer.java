@@ -18,7 +18,6 @@ public class ServiceLayer {
     private GameRepository gameRepository;
     private InvoiceRepository invoiceRepository;
     private T_shirtsRepository t_shirtsRepository;
-
     private FeeRepository feeRepository;
     private TaxRepository taxRepository;
 
@@ -65,9 +64,6 @@ public class ServiceLayer {
         return consoleRepository.findByManufacturer(manufacturer);
     }
 
-
-
-
     //
     // Game API
     //
@@ -106,9 +102,6 @@ public class ServiceLayer {
     public List<Game> findByTitle(String title){
         return gameRepository.findByTitle(title);
     }
-
-
-
 
     //
     // Invoice API
@@ -163,12 +156,9 @@ public class ServiceLayer {
         invoice.setSubtotal(subTotal);
 
         // Next get the tax
-
         Tax tax = taxRepository.findByState(invoice.getState());
         invoice.setTax(tax.getRate().multiply(subTotal));
-
         // Check for additional processing fee
-
         if (invoice.getQuantity() > 10) {
             invoice.setProcessing_fee(invoice.getProcessing_fee().add(BigDecimal.valueOf(15.49)));
         }
